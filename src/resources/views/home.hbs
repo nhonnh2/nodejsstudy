@@ -1,1 +1,21 @@
 <h1>Home page</h1>
+<div class='courseList'>
+  <a class='nav-link' href='/courses/create'>đăng khóa học</a>
+  <a href='/me/stored/courses'>Khóa học của tôi</a>
+  <div class='row'>
+    {{#each courses}}
+      <div class='card col-sm-6 col-lg-4'>
+        <a href='/courses/{{this.slug}}'>
+          <img class='card-img-top' src='{{this.image}}' alt='Card image cap' />
+        </a>
+        <div class='card-body'>
+          <a href='/courses/{{this.slug}}'>
+            <h5 class='card-title'>{{this.name}}</h5>
+          </a>
+          <p class='card-text'>{{this.description}}</p>
+          <a href='/courses/{{this.slug}}' class='btn btn-primary'>see more</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
