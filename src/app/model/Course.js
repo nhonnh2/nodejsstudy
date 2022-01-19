@@ -14,6 +14,18 @@ const Course = new Schema({
     slug: { type: String, slug: 'name', unique: true },
 }, { timestamps: true });
 
+//custom query helpers
+Course.query.sortable = function(req) {
+    //hasOwnProperty check key có tồn tại trong object k
+    if (req.query.hasOwnProperty('_sort')) {
+        const isValidtype = ['asc', 'desc'].includes(req.query.type)
+        return this.sort({
+            [req.query.column]: isValidtype ? req.query.type : 'desc'
+        })
+    }
+    return this;
+}
+
 //add plugin
 mongoose.plugin(slug);
 Course.plugin(mongoose_delete, { overrideMethods: "all", deletedAt: true });
