@@ -21,11 +21,16 @@
     <thead>
       <tr>
         <th scope='col' colspan='2'>STT</th>
-        <th scope='col'>Name</th>
-        <th scope='col'>Level</th>
+        <th scope='col'>
+          Name
+          {{{sortable "name" _sort}}}
+        </th>
+        <th scope='col'>Level
+           {{{sortable "level" _sort}}}
+        </th>
         <th scope='col'>Tác vụ</th>
       </tr>
-    </thead>
+    </thead>  
     <tbody>
       {{#each courses}}
         <tr>

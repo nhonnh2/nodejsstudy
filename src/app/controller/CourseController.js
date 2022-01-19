@@ -82,5 +82,17 @@ class CourseController {
                 res.json({ message: 'action is invalid!' });
         }
     }
+
+    async getAllCourses(req, res) {
+        try {
+            const data = courses.find({});
+            return res.status(200).json({
+                message: 'ok',
+                data
+            })
+        } catch (err) {
+            return res.status(500).json({ message: "error server" })
+        }
+    }
 }
 module.exports = new CourseController();
